@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+
+        <%= title%>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <script src="https://kit.fontawesome.com/4711b41b46.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body class="body">
+    <div class="mainbox">
+        <h1 class="heading">contact list</h1>
+        <div class="smallbox">
+            <ul>
+                <% for( let i of contact_list) {%>
+
+                    <li class="li">
+                        <div class="contactname">
+                            <p>
+                                <%=i.name%>
+                            </p>
+                            <p>
+                                <%= i.mobile%>
+                            </p>
+                        </div>
+                        <div class="deletebotton">
+                            <a href="delete-contact" ?phone=<%=i.mobile%> > <button class="delete-button">Delete</button> </a>
+                        </div>
+                    </li>
+                    <%}%>
+        
+            </ul>
+        </div>
+
+
+
+        <div class="entry">
+            <form action="create-contact" method="post">
+                <input type="text" name="name" placeholder="enter name" required>
+                <input type="number" name="mobile" placeholder="enter number" required>
+                <input type="submit">
+
+
+            </form>
+
+
+        </div>
+    </div>
+    <script src="/js/scrypt.js"></script>
+
+</body>
+
+</html>
